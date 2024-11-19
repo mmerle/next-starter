@@ -1,0 +1,23 @@
+:root {
+  --layout-columns: 12;
+  --layout-margin: 24px;
+  --layout-offset-top: 188px;
+  --gutter-xs: 4px;
+  --gutter-s: 16px;
+  --gutter: 22px;
+
+  @media (--below-m) {
+    --layout-columns: 4;
+  }
+
+  @media (--below-s) {
+    --layout-margin: 16px;
+    --layout-offset-top: calc(57px + (var(--layout-margin) * 2));
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--layout-columns), minmax(0, 1fr));
+  gap: var(--gutter);
+}

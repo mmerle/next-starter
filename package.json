@@ -34,12 +34,15 @@
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
     "@sanity/eslint-config-studio": "^4.0.0",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
     "eslint": "8.57.0",
     "eslint-config-next": "15.0.3",
     "eslint-plugin-next-on-pages": "1.13.5",
     "postcss": "^8.4.49",
-    "postcss-nested": "^7.0.2",
-    "postcss-preset-env": "^10.1.1"
+    "postcss-custom-media": "^11.0.5",
+    "postcss-media-minmax": "^5.0.0",
+    "postcss-nesting": "^13.0.1"
   },
   "pnpm": {
     "overrides": {

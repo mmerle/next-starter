@@ -1,12 +1,8 @@
 @import 'reset.css';
 @import 'utils.css';
+@import 'layout.css';
 
 :root {
-  --font-weight: 400;
-  --font-ital: 0;
-  --font-mono: 0;
-  --font-vars-mono: 'MONO' 0.5, 'wght' 350;
-
   --text-xxs: 10px;
   --text-xs: 14px;
   --text-s: 16px;
@@ -31,32 +27,6 @@
   --radius-m: 12px;
   --radius-l: 16px;
   --radius-full: 999px;
-
-  --ui-shadow: 0px 0px 6px rgb(var(--black-rgb) / 0.05);
-
-  --blur: 30px;
-
-  --layout-columns: 12;
-  --layout-margin: 24px;
-  --layout-offset-top: 188px;
-  --gutter-xs: 4px;
-  --gutter-s: 16px;
-  --gutter: 22px;
-
-  --space: 3.2vw;
-
-  @media (--above-m) {
-    --space: 1.67vw;
-  }
-
-  @media (--below-m) {
-    --layout-columns: 4;
-  }
-
-  @media (--below-s) {
-    --layout-margin: 16px;
-    --layout-offset-top: calc(57px + (var(--layout-margin) * 2));
-  }
 
   color-scheme: light dark;
   accent-color: var(--accent);
@@ -96,9 +66,9 @@ main {
   flex-grow: 1;
 }
 
-::selection {
+*::selection {
   color: var(--bg-color);
-  background: var(--text-color);
+  background-color: var(--text-color);
 }
 
 :is(a, button, input, textarea, summary) {
@@ -115,6 +85,15 @@ main {
     text-decoration: underline;
     text-underline-offset: 0.3em;
   }
+}
+
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .prose {

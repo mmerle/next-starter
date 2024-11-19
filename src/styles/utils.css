@@ -22,10 +22,8 @@
   text-transform: uppercase;
 }
 
-.layout-grid {
-  display: grid;
-  grid-template-columns: repeat(var(--layout-columns), minmax(0, 1fr));
-  gap: var(--gutter);
+.hidden {
+  display: none;
 }
 
 .mobile-only {
