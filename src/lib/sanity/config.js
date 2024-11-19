@@ -3,16 +3,17 @@
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
-import { RobotIcon } from '@sanity/icons';
 import { colorInput } from '@sanity/color-input';
 import { media } from 'sanity-plugin-media';
 
+import icon from '~/app/apple-icon.png';
 import { apiVersion, dataset, projectId, studioUrl } from './api';
 import { schemaTypes, singletons } from './schemas';
 import { pageStructure, singletonPlugin } from './plugins/structure';
 import { StudioNavbar } from './_components/studio';
 import { CustomAction, CustomBadge } from './_components/document';
 
+const logo = <img src={icon.src} />;
 const singletonNames = singletons.map((item) => item.name);
 
 export default defineConfig({
@@ -21,7 +22,7 @@ export default defineConfig({
   basePath: studioUrl,
   name: 'next-starter',
   title: 'Next Starter',
-  icon: RobotIcon,
+  icon: logo,
   schema: {
     types: schemaTypes,
   },
