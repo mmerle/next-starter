@@ -1,0 +1,16 @@
+/* this file must be a css module as it's being used as a global data point */
+
+@custom-media --below-s (width <= 550px);
+@custom-media --below-m (width <= 800px);
+@custom-media --below-l (width <= 1080px);
+@custom-media --below-xl (width <= 1440px);
+
+@custom-media --above-s (width >= 550px);
+@custom-media --above-m (width >= 800px);
+@custom-media --above-l (width >= 1080px);
+@custom-media --above-xl (width >= 1440px);
+
+@custom-media --use-motion (prefers-reduced-motion: no-preference);
+@custom-media --reduce-motion (prefers-reduced-motion: reduce);
+@custom-media --media-touch (pointer: coarse);
+@custom-media --media-no-touch (pointer: fine);

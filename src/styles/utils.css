@@ -1,0 +1,57 @@
+.aspect-video {
+  aspect-ratio: 16/9;
+}
+
+.aspect-square {
+  aspect-ratio: 1;
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--layout-columns), minmax(0, 1fr));
+  gap: var(--gutter);
+}
+
+.mobile-only {
+  @media (--above-m) {
+    display: none;
+  }
+}
+
+.desktop-only {
+  @media (--below-m) {
+    display: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.pill {
+  border-radius: 999px;
+}

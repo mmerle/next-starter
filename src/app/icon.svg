@@ -1,0 +1,17 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fill-color: #eb46d1;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --fill-color: #eb46d1;
+      }
+    }
+  </style>
+
+  <rect width="1080" height="1080" fill="var(--fill-color)" />
+</svg>

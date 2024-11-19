@@ -1,0 +1,126 @@
+@import 'reset.css';
+@import 'utils.css';
+
+:root {
+  --font-weight: 400;
+  --font-ital: 0;
+  --font-mono: 0;
+  --font-vars-mono: 'MONO' 0.5, 'wght' 350;
+
+  --text-xxs: 10px;
+  --text-xs: 14px;
+  --text-s: 16px;
+  --text: 18px;
+  --text-m: 20px;
+  --text-l: 24px;
+  --text-xl: 36px;
+  --text-xxl: 40px;
+
+  --outline-size: 2px;
+  --outline-style: solid;
+  --outline-color: var(--accent);
+
+  --z-foundation: 1;
+  --z-surface: 2;
+  --z-raised: 3;
+  --z-overlay: 4;
+  --z-important: 999;
+
+  --radius-s: 5px;
+  --radius: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+  --radius-full: 999px;
+
+  --ui-shadow: 0px 0px 6px rgb(var(--black-rgb) / 0.05);
+
+  --blur: 30px;
+
+  --layout-columns: 12;
+  --layout-margin: 24px;
+  --layout-offset-top: 188px;
+  --gutter-xs: 4px;
+  --gutter-s: 16px;
+  --gutter: 22px;
+
+  --space: 3.2vw;
+
+  @media (--above-m) {
+    --space: 1.67vw;
+  }
+
+  @media (--below-m) {
+    --layout-columns: 4;
+  }
+
+  @media (--below-s) {
+    --layout-margin: 16px;
+    --layout-offset-top: calc(57px + (var(--layout-margin) * 2));
+  }
+
+  color-scheme: light dark;
+  accent-color: var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark light;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-diatype-plus);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-size: clamp(14px, 1.11vw, 18px);
+}
+
+.app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 100dvh;
+}
+
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+::selection {
+  color: var(--bg-color);
+  background: var(--text-color);
+}
+
+:is(a, button, input, textarea, summary) {
+  &:focus-visible {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+  }
+}
+
+.link {
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+}
+
+.prose {
+  letter-spacing: var(--letter-spacing, 0);
+
+  &:not(:last-child) {
+    margin-bottom: var(--gutter-s, 1rem);
+  }
+}

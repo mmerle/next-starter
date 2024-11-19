@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:eslint-plugin-next-on-pages/recommended",
+    "@sanity/eslint-config-studio"
+  ],
+  "plugins": ["eslint-plugin-next-on-pages"],
+  "rules": {
+    "import/no-anonymous-default-export": [
+      "warn",
+      {
+        "allowObject": true
+      }
+    ],
+    "react/jsx-uses-react": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "next-on-pages/no-unsupported-configs": "warn",
+    "@next/next/no-img-element": "warn"
+  }
+}
