@@ -5,9 +5,9 @@ const postcssConfig = {
       files: ['src/styles/media-queries.module.css'],
     },
     cssnano: {},
-    'postcss-nesting': {},
-    'postcss-media-minmax': {},
     'postcss-custom-media': {},
+    'postcss-media-minmax': {},
+    'postcss-nesting': {},
   },
 };
 
