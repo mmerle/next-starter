@@ -1,8 +1,9 @@
 import { HomeIcon } from '@sanity/icons';
+import { defineField, defineType } from 'sanity';
 
-export default {
-  title: 'Home',
+export default defineType({
   name: 'home',
+  title: 'Home',
   type: 'document',
   icon: HomeIcon,
   __experimental_formPreviewTitle: false,
@@ -13,36 +14,47 @@ export default {
     },
   ],
   fields: [
-    {
-      title: 'Title',
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (rule) => [
-        rule.required().min(10).error('A title of at least 10 characters is required'),
+        rule.required().min(8).error('A title of at least 10 characters is required'),
         rule.max(50).warning('Shorter titles are usually better'),
       ],
-    },
-    {
-      title: 'Description',
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule) => Rule.required(),
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    }),
+    defineField({
       name: 'description',
+      title: 'Description',
       type: 'text',
       rows: 2,
-    },
-    {
-      title: 'About',
+    }),
+    defineField({
       name: 'about',
+      title: 'About',
       type: 'array',
       of: [{ type: 'block' }],
-    },
-    {
-      title: 'Image',
+    }),
+    defineField({
       name: 'image',
+      title: 'Image',
       type: 'a11y-image',
-    },
-    {
-      title: 'SEO / Share Settings',
+    }),
+    defineField({
       name: 'seo',
+      title: 'SEO / Share Settings',
       type: 'seo',
-    },
+      group: 'seo',
+    }),
   ],
-};
+});

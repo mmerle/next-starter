@@ -1,7 +1,7 @@
 import { CogIcon } from '@sanity/icons';
 
 export default {
-  title: 'Site Settings',
+  title: 'Settings',
   name: 'settings',
   type: 'document',
   icon: CogIcon,
@@ -16,6 +16,20 @@ export default {
       title: 'Site Description',
       name: 'description',
       type: 'text',
+    },
+    {
+      title: 'Studio UI',
+      name: 'studioUi',
+      type: 'object',
+      options: { collapsible: true },
+      fields: [
+        {
+          title: 'External Links',
+          name: 'externalLinks',
+          type: 'array',
+          of: [{ type: 'link' }],
+        },
+      ],
     },
     {
       title: 'Availability',

@@ -7,7 +7,7 @@ const categories = [
     group: 1,
     title: 'Pages',
     value: 'pages',
-    types: ['home', 'error-404'],
+    types: ['page', 'home', 'error-404'],
   },
   {
     icon: ColorWheelIcon,

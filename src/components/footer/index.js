@@ -1,23 +1,27 @@
 import Link from 'next/link';
 import { Fragment } from 'react';
+import { navigationQuery } from '~/lib/sanity/queries';
+import { sanityFetch } from '~/lib/sanity/live';
 
-const REPO = 'https://github.com/mmerle/next-starter';
-const LINKS = [
-  { href: `${REPO}/generate`, label: 'Use this template' },
-  { href: REPO, label: 'GitHub' },
-];
+export async function Footer() {
+  const { data: nav } = await sanityFetch({
+    query: navigationQuery,
+    params: { navId: 'footer-menu' },
+  });
 
-export function Footer() {
   return (
     <footer>
       <div>
-        {LINKS.map((link, index) => (
-          <Fragment key={link.href}>
-            <Link href={link.href} target="_blank" rel="noopener noreferrer">
-              {link.label}
+        {nav?.items?.map((item, index) => (
+          <Fragment key={item._key}>
+            <Link
+              href={item.href}
+              {...(item.openInNewTab && { target: '_blank', rel: 'noopener noreferrer' })}
+            >
+              {item.label}
             </Link>
 
-            {index !== LINKS.length - 1 && <span>/</span>}
+            {index !== nav?.items?.length - 1 && <span>/</span>}
           </Fragment>
         ))}
       </div>

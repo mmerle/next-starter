@@ -1,18 +1,20 @@
 import Link from 'next/link';
-import s from './navigation.module.css';
+import { navigationQuery } from '~/lib/sanity/queries';
+import { sanityFetch } from '~/lib/sanity/live';
 
-const LINKS = [
-  { href: '/', label: 'home' },
-  { href: '/sanity', label: 'sanity' },
-];
+export async function Navigation() {
+  const { data: nav } = await sanityFetch({
+    query: navigationQuery,
+    params: { navId: 'main-menu' },
+  });
+  console.log(nav);
 
-export function Navigation() {
   return (
     <nav>
       <ul>
-        {LINKS.map((link) => (
-          <li key={link.href}>
-            <Link href={link.href}>{link.label}</Link>
+        {nav?.items?.map((item) => (
+          <li key={item._key}>
+            <Link href={item.page}>{item.label}</Link>
           </li>
         ))}
       </ul>

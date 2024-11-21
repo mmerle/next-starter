@@ -14,6 +14,9 @@ import {
 } from '~/utils/metadata';
 import { Navigation } from '~/components/navigation';
 import { Footer } from '~/components/footer';
+import { SanityLive } from '~/lib/sanity/live';
+import { draftMode } from 'next/headers';
+import { VisualEditing } from 'next-sanity';
 
 export const metadata = {
   metadataBase:
@@ -54,12 +57,20 @@ export const viewport = {
 };
 
 export default async function RootLayout({ children }) {
+  const { isEnabled: isDraftMode } = await draftMode();
   return (
     <html lang="en-CA" className={fonts?.className} suppressHydrationWarning>
       <head>
         <StyleVariables colors={colors} themes={themes} defaultTheme="light" />
       </head>
       <body>
+        {isDraftMode && (
+          <>
+            <VisualEditing />
+          </>
+        )}
+        <SanityLive />
+
         <Lenis root options={{ lerp: 0.2 }} />
         <ThemeProvider disableTransitionOnChange>
           <div className="app">

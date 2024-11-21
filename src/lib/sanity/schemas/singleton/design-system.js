@@ -87,6 +87,9 @@ export default {
           },
         },
       ],
+      options: {
+        layout: 'grid',
+      },
     },
     {
       title: 'Fonts',

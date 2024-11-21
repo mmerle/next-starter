@@ -5,6 +5,7 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { colorInput } from '@sanity/color-input';
 import { media } from 'sanity-plugin-media';
+import { presentationTool } from 'sanity/presentation';
 
 import icon from '~/app/apple-icon.png';
 import { apiVersion, dataset, projectId, studioUrl } from './api';
@@ -44,5 +45,12 @@ export default defineConfig({
     media(),
     visionTool({ defaultApiVersion: apiVersion }),
     colorInput(),
+    presentationTool({
+      previewUrl: {
+        previewMode: {
+          enable: '/api/draft-mode/enable',
+        },
+      },
+    }),
   ],
 });
