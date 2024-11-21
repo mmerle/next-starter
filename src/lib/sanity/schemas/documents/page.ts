@@ -6,10 +6,17 @@ export default defineType({
   title: 'Pages',
   type: 'document',
   icon: DocumentIcon,
+  __experimental_formPreviewTitle: false,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+  ],
   fields: [
     defineField({
-      name: 'name',
-      title: 'Name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
@@ -51,6 +58,12 @@ export default defineType({
           ],
         },
       },
+    }),
+    defineField({
+      name: 'seo',
+      title: 'SEO / Share Settings',
+      type: 'seo',
+      group: 'seo',
     }),
   ],
 });

@@ -1,13 +1,5 @@
 import { groq } from 'next-sanity';
 
-export const homeQuery = groq`
-  *[_type == "home"][0] {
-    _id,
-    title,
-    description,
-   }
-`;
-
 const linkFields = groq`
   link {
     ...,
@@ -16,6 +8,24 @@ const linkFields = groq`
       "post": post->slug.current
       }
     }
+`;
+
+const seoFields = groq`
+  seo {
+    metaTitle,
+    metaDescription,
+    shareGraphic {
+      asset->
+    }
+  }
+`;
+
+export const homeQuery = groq`
+  *[_type == "home"][0] {
+    _id,
+    title,
+    description,
+   }
 `;
 
 export const settingsQuery = groq`
@@ -33,8 +43,8 @@ export const settingsQuery = groq`
 
 export const navigationQuery = groq`
   *[_type == "navigation" && navId.current == $navId][0] {
-    title,
     _id,
+    title,
     items[] {
       ...,
       _key,
@@ -44,4 +54,23 @@ export const navigationQuery = groq`
       "page": page->slug.current,
     }
   }
+`;
+
+export const getPageQuery = groq`
+  *[_type == 'page' && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    heading,
+    subheading,
+    "pageBuilder": pageBuilder[] {
+      ...,
+    },
+    ${seoFields},
+  }
+`;
+
+export const pagesSlugs = `
+  *[_type == "page" && defined(slug.current)]
+  {"slug": slug.current}
 `;
