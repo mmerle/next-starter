@@ -1,0 +1,63 @@
+.modal {
+  --background: #fff;
+  --text: #252837;
+  --text-muted: #515870;
+  --border-color: #e3e4e8;
+
+  @media (prefers-color-scheme: dark) {
+    --background: #13141b;
+    --text: #e4e5e9;
+    --text-muted: #979cb0;
+    --border-color: #2a2d3f;
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  color: var(--text);
+  width: 356px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .title,
+    .description {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .title {
+      font-weight: 500;
+    }
+
+    .description {
+      color: var(--text-muted);
+    }
+  }
+
+  button {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 3px;
+    background-color: var(--text);
+    color: var(--background);
+    line-height: 0.8;
+    height: fit-content;
+    font-size: 13px;
+    font-weight: 500;
+  }
+}

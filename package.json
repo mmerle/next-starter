@@ -43,7 +43,8 @@
     "postcss": "^8.4.49",
     "postcss-custom-media": "^11.0.5",
     "postcss-media-minmax": "^5.0.0",
-    "postcss-nesting": "^13.0.1"
+    "postcss-nesting": "^13.0.1",
+    "typescript": "^5.6.3"
   },
   "pnpm": {
     "overrides": {

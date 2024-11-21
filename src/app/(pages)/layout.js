@@ -17,6 +17,7 @@ import { Footer } from '~/components/footer';
 import { SanityLive } from '~/lib/sanity/live';
 import { draftMode } from 'next/headers';
 import { VisualEditing } from 'next-sanity';
+import DraftModeToast from '~/lib/sanity/_components/draft-mode-toast';
 
 export const metadata = {
   metadataBase:
@@ -67,6 +68,7 @@ export default async function RootLayout({ children }) {
         {isDraftMode && (
           <>
             <VisualEditing />
+            <DraftModeToast />
           </>
         )}
         <SanityLive />
