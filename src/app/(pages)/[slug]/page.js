@@ -1,6 +1,7 @@
 import { sanityFetch } from '~/lib/sanity/live';
 import { pagesSlugs, getPageQuery } from '~/lib/sanity/queries';
 import { getMetadata } from '~/utils/metadata';
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const { data } = await sanityFetch({
@@ -21,7 +22,14 @@ export async function generateMetadata(props) {
 
 export default async function Page(props) {
   const params = await props.params;
-  const { data: page } = await sanityFetch({ query: getPageQuery, params });
+  const { data: page } = await sanityFetch({
+    query: getPageQuery,
+    params,
+  });
+
+  if (!page) {
+    notFound();
+  }
 
   return (
     <div>
